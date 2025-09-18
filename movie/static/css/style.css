@@ -1,0 +1,165 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #1d2b64, #f8cdda);
+    color: #fff;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1e2a47;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    border-right: 3px solid #f1c40f;
+}
+
+.sidebar h3 {
+    color: #f1c40f;
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.genres {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.genre {
+    color: #ccc;
+    font-size: 16px;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.genre input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.genre:hover {
+    color: #f1c40f;
+}
+
+.btn {
+    background-color: #f1c40f;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #d4ac0d;
+}
+
+.clear-btn {
+    background-color: #e74c3c;
+    margin-top: 10px;
+}
+
+.clear-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Main Container */
+.main-container {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 20px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    background-color: #2c3e50;
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Header */
+.header {
+    background-color: #333;
+    padding: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Movie Cards */
+.results {
+    margin-top: 30px;
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-card {
+    background-color: #2c3e50;
+    width: 200px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.movie-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.movie-card p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-container {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 80%;
+    }
+}

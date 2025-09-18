@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Sidebar with filters -->
+    <div class="sidebar">
+        <h3>Filter by Genre</h3>
+        <form id="genreForm" action="/filter" method="POST">
+            <div class="genres">
+                {% for genre in genres %}
+                    <label class="genre">
+                        <input type="checkbox" name="genre" value="{{ genre }}"> {{ genre }}
+                    </label>
+                {% endfor %}
+            </div>
+            <button class="btn" type="submit">Show Results</button>
+            <button class="btn clear-btn" type="button" onclick="clearSelection()">Clear Selection</button>
+        </form>
+    </div>
+
+    <!-- Main container -->
+    <div class="main-container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <form action="/search" method="get">
+                <input type="text" name="query" placeholder="Search for a movie..." required>
+            </form>
+        </div>
+
+        <!-- Header -->
+        <div class="header">Movie Recommendations</div>
+
+        <!-- Recommended Movies -->
+        {% if movies %}
+        <div class="results" id="results">
+            <h3>Recommended Movies</h3>
+            <div class="movie-container">
+                {% for movie in movies %}
+                    <div class="movie-card">
+                        <img src="{{ url_for('static', filename='images/' + movie[3]) }}" alt="{{ movie[1] }}">
+                        <h2>{{ movie[1] }}</h2>
+                        <p>{{ movie[4] }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function clearSelection() {
+            document.querySelectorAll('input[name="genre"]').forEach(cb => cb.checked = false);
+        }
+    </script>
+</body>
+</html>
